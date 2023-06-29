@@ -20,15 +20,15 @@ export default function DesktopApps({childToParent, parentToChild}){
                         /> 
                     </div>
                     <div className='xs:mx-5'>
-                    <h1 className='text-5xl font-bold text-sky-600'>¿Quieres hablar conmigo?</h1>
+                    <h1 className='text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-400 bg-clip-text text-transparent'>¿Quieres hablar conmigo?</h1>
                     <p className='my-5'>
                         Puedes contactarme para hablar de negocios, o solo tomar un cafe.<br/>
                         Sería genial escuchar de ti.
                     </p>
                     <div className='my-5'>   
-                        <p className='text-sky-600'>No. Telefono:</p>
+                        <p className='text-cyan-500'>No. Telefono:</p>
                         <p className='mb-5'>+51 833 301 9932</p>
-                        <p className='text-sky-600'>Email:</p>
+                        <p className='text-cyan-500'>Email:</p>
                         <p>mau221201@gmail.com</p>
                         <p>mau221201@hotmail.com</p>
                     </div>

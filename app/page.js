@@ -16,12 +16,11 @@ import prof2 from './images/Aaron3.png';
 import webIcon from './images/html-5.png';
 import movileIcon from './images/aplicacion-movil.png';
 import deskIcon from './images/java.png';
-import docNote from './images/DocNote.png'
-import tweets from './images/Tweets.png'
 import Contact from '@/app/Contact';
-import Desarrollador from './images/Desarrollador.png';
 
-import animationData from "./assets/devanim.json"
+import Projects from './components/projects';
+import About from './components/about';
+import Skills from './components/skills';
 
 function Footer() {
   return (
@@ -139,9 +138,8 @@ export default function Home() {
 
       {isDesktopOpen ? <Contact childToParent={IsClosed} parentToChild={darkMode}/> : null}
       <UpButton></UpButton>
-
-      <main className='font-mon sm:px-10 lg:px-[200px] dark:bg-gray-900'>
-        <section>
+      <main className='font-mon dark:bg-gray-900'>
+        <section className='lg:px-[200px]'>
           <div className='flex justify-between items-center p-10 text-black dark:text-white'>
             <div>
               {isMobile ?
@@ -181,7 +179,7 @@ export default function Home() {
             </div>
           )}
         </section>
-        <section className=''> 
+        <section className='lg:px-[200px]'> 
           <div className='flex-col text-center items-center'>
             <h1 className='mt-20 xl:text-8xl font-bold text-sky-500 md:text-6xl bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent	
              bg-clip-text	xs:mx-5 xs:text-6xl font-alata'>
@@ -211,121 +209,16 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section  className='mx-5 dark:text-white mb-48' ref={aboutRef}>
-          <h1 className='lg:text-3xl font-bold xs:text-2xl' >
-            ¿Quién soy?
-          </h1>
-          <div className='xl:grid xl:grid-cols-2 xl:gap-24 xl:grid-flow-col-dense	'>
-            <div className='relative mx-auto xl:w-auto md:w-96 '>
-             <Lottie animationData={animationData} className="text-center"/>
-            </div>
-            <div>
-              <p className='leading-loose lg:text-xl lg:leading-loose md:text-lg dark:text-gray-300 xl:mx-10 xl:mt-52 text-justify'>
-              Soy un <b>Ingeniero en Sistemas Computacionales</b> egresado del <b className='text-yellow-500'>Instituo Tecnologico de Cd. Madero</b>. Con experiencia en el ámbito de desarollo de software
-              y coordinación de equipos de desarrollo.
-              
-              </p>
-            </div>
-          </div>
+        <section  className=' dark:text-white mb-36' ref={aboutRef}>
+         <About></About>
         </section>
-        <section  className='mx-5 dark:text-white' ref={skillRef} >
-          <h1 className='lg:text-3xl font-bold xs:text-2xl'>
-            Mis Habilidades
-          </h1>
-          <p className='leading-loose lg:text-xl lg:leading-loose mt-2 md:text-lg dark:text-gray-300 text-justify'>
-          A lo largo de mi carrera, me he especializado en el uso de diversas tecnologías, lo cual ha sido fundamental para construir una 
-          sólida base de conocimientos y habilidades en el campo del desarrollo. Estas tecnologías han abarcado diferentes áreas, desde <b>desarrollo web 
-          y móvil hasta análisis de datos</b>.
-          </p>
+        <section  className=' dark:text-white py-16' ref={skillRef} >
+         <Skills></Skills>
         </section>
-        <section className='mx-5 dark:text-white mb-48'>
-          <div className='text-center lg:flex gap-10 justify-center'>
-            <div className='flex-col  p-10 bg-white drop-shadow-xl rounded-2xl my-10 dark:bg-gray-700 transition ease-all hover:scale-110 hover:rounded-xl'>
-              <div className='relative mx-auto w-40 h-40 mb-3'>
-                <Image 
-                src={webIcon}
-                alt={""}
-                />   
-              </div>
-              <h3 className='text-xl font-bold'>Proyectos Web</h3>
-              <p className='mt-2 dark:text-gray-300'>Especialzado en crear aplicaciones y sistemas hechos a la medida </p>
-              <p className='my-5 text-sky-500 text-lg'>Tecnologías</p>
-              <p>HTML</p>
-              <p>CSS</p>
-              <p>JavaScript</p>
-              <p>React</p>
-              <p>NodeJS</p>
-            </div>
-            <div className='flex-col  p-10 bg-white drop-shadow-xl rounded-2xl my-10 dark:bg-gray-700 transition ease-all hover:scale-110 hover:rounded-xl' >
-              <div className='relative mx-auto w-40 h-40 mb-3'>
-                <Image 
-                src={deskIcon}
-                alt={""}
-                />   
-              </div>
-              <h3 className='text-xl font-bold'>Proyectos de Escritorio y Análisis de Datos</h3>
-              <p className='mt-2 dark:text-gray-300'>Especialzado en crear aplicaciones y sistemas hechos a la medida </p>
-              <p className='my-5 text-sky-500 text-lg'>Tecnologías</p>
-              <p>Java</p>
-              <p>C#</p>
-              <p>MySQL</p>
-              <p>Python</p>
-              <p>R</p>
-            </div>
-            <div className='flex-col p-10 bg-white drop-shadow-xl rounded-2xl my-10 dark:bg-gray-700 transition ease-all hover:scale-110 hover:rounded-xl'>
-              <div className='relative mx-auto w-40 h-40 mb-3'>
-                <Image 
-                src={movileIcon}
-                alt={""}
-                />   
-              </div>
-              <h3 className='text-xl font-bold '>Programación Móvil</h3>
-              <p className='mt-2 dark:text-gray-300'>Especialzado en crear aplicaciones y sistemas hechos a la medida </p>
-              <p className='my-5 text-sky-500 text-lg'>Tecnologías</p>
-              <p>React Native</p>
-              <p>Android Studio - Java</p>
-            </div>
-          </div>
+        <section className='mb-10'>
+          <Projects></Projects>
         </section>
-        <section className='mb-10 xs:mx-5'>
-          <h1 className='text-3xl font-bold dark:text-white'>Mis Proyectos</h1>
-          <p className='leading-loose lg:text-xl mt-2 mb-9 md:text-lg lg:leading-loose dark:text-gray-300'>
-            Así como he aprendido diversas tencologías, he aplicado dichos conocimientos para construir varios proyectos, 
-            desde Desarrollo Web hasta aplicaciones de gestión de información y análisis de datos.
-          </p>
-          <div className='xl:grid xl:grid-cols-2 xl:gap-4'>
-            <div className='mb-5 transition ease-out hover:brightness-75 '>
-              <Link href="/docnote">
-              <Image
-              src={docNote}
-              alt={"This is me perros"}
-              />
-              </Link>
-            </div>
-            <div className='mb-5 transition ease-out hover:brightness-75'>
-              <Image
-              src={tweets}
-              alt={"This is me perros"}
-              />
-            </div>
-            <div className='mb-5 transition ease-out hover:brightness-75'>
-              <Image
-              src={tweets}
-              alt={"This is me perros"}
-              />
-            </div>
-            <div className='mb-5 transition ease-out hover:brightness-75'>
-              <Image
-              src={tweets}
-              alt={"This is me perros"}
-              />
-            </div>
-          </div>
-        </section>
-        <div className='xs:mx-5'>
-        </div>
       </main>
-   
       <Footer />
     </div>
   )
