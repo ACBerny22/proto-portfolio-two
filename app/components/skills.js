@@ -7,7 +7,6 @@ import movileIcon from '../images/aplicacion-movil.png';
 import deskIcon from '../images/java.png';
 import Contact from '@/app/Contact';
 
-
 export default function Skills(){
     return(
         <div className=''>
