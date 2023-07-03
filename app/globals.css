@@ -26,6 +26,25 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter:blur(5px);
+    transform: translateX(-80%);
+  }
+  to {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateX(0);
+  }
+}
+
+
+
+
+.animationSt{
+  animation: fadeIn 1s;
+}
 
 .content{
   animation: pop 0.3s;

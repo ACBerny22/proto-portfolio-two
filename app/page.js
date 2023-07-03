@@ -1,55 +1,112 @@
 "use client"; 
 
 import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link';
 
 import { BsFacebook, BsTwitter, BsTelegram } from 'react-icons/bs';
 import {  IoIosCloudyNight, IoIosSunny, IoMdCloseCircle } from 'react-icons/io';
-import { FaArrowUp } from 'react-icons/fa';
-import Lottie from "lottie-react";
+import { FaHamburger } from 'react-icons/fa';
 
-import { useState, useEffect, useRef} from 'react';
+import { FaArrowUp } from 'react-icons/fa';
+import { GiBee } from 'react-icons/gi';
+
+import { useState, useEffect, useRef, useLayoutEffect} from 'react';
+import { useDarkStore } from './themeContext';
 
 import prof from './images/me.jpg';
 import prof2 from './images/Aaron3.png';
-import webIcon from './images/html-5.png';
-import movileIcon from './images/aplicacion-movil.png';
-import deskIcon from './images/java.png';
 import Contact from '@/app/Contact';
 
 import Projects from './components/projects';
 import About from './components/about';
 import Skills from './components/skills';
-
-function Footer() {
-  return (
-    <footer className="bg-gray-300 text-gray-600 text-center py-10 dark:bg-gray-800 dark:text-gray-400">
-      <p className=" mb-5">Creado por Mauricio Bernabe Fortuna Lopez®</p>
-      <p className="">Powered by</p>
-      <p className="">H A R M O N Y</p>
-    </footer>
-  );
-}
-
+import WebSkills from './components/webskills';
 
 
 export default function Home() {
 
-  //States and Shit
+  function Footer() {
+    return (
+      <footer className="bg-gray-300 text-gray-600 py-10 dark:bg-gray-800 dark:text-gray-400">
+        <div className='mx-5 flex flex-col items-center text-center'>
+            <p className=" mb-5 font-bold">Creado por Mauricio Bernabe Fortuna López - 2023®</p>
+            <p className="">Powered by</p>
+            <p className="text-yellow-600 font-bold"> - My Little Bee - </p>
+            <p className="text-yellow-600 font-bold"> VDBA</p>
+            <GiBee className='text-5xl mt-10 hover:text-yellow-600 hover:scale-125 transition-all duration-300'/>
+        </div>
+      </footer>
+    );
+  }
+
+  function NavBarButton({scrollTo, caps}){
+    return(
+      <div className="relative text-center" onClick={scrollTo}>
+        <button className="bg-transparent text-black py-2 px-4 rounded transition-all ease-in-out dark:text-white">
+          {caps}
+        </button> 
+        <button className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-400 rounded opacity-0 hover:opacity-100
+      hover:text-white transition-opacity ease-in-out  py-2 px-4">
+        {caps}
+        </button>
+      </div>
+    );
+  }
+
+  function HamburgerButton({scrollTo, caps}){
+    return(
+      <div className="relative text-center py-5 my-2" onClick={scrollTo}>
+        <button className="bg-transparent text-black py-2 px-4 rounded transition-all duration-300 font-normal dark:text-white">
+          {caps}
+        </button>
+        <button className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-400 rounded opacity-0 hover:opacity-100
+       hover:text-white transition-opacity duration-300 py-2 px-4">
+        {caps}
+        </button>
+      </div>
+    );
+  }
+
+  // States and Shit
   const [darkMode, setDarkMode] = useState(false); 
+
+  const {isDark, setIsDark} = useDarkStore();
+  console.log(isDark);
+  // State for conact window
   const [isDesktopOpen, setIsDesktopOpen] = useState(false);
-  //This is from the up arrow
+  // This is from the up arrow
   const [isVisible, setIsVisible] = useState(false);
   const [isShownCartoon, setIsShownCartoon] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
-  
+
+  // useLayoutEffect(() => {
+  //   if (sessionStorage.getItem('state')) {
+  //     if(sessionStorage.getItem('state') === 'true'){
+  //       setIsDark(true);
+  //     }
+  //     else{
+  //       setIsDark(false);
+  //     }
+  //   } else {
+  //     sessionStorage.setItem('state', darkMode.toString())
+  //   }
+  // }, [])
+
+
+  // useEffect(() => {
+  //   sessionStorage.setItem('state', isDark.toString())
+  // }, [isDark])
+
+
   //Scroll Refs
+  
+
+
   const aboutRef = useRef(null);
   const skillRef = useRef(null);
+  const projectsRef = useRef(null);
 
   const scrollToAbout = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth'});
@@ -58,6 +115,11 @@ export default function Home() {
 
   const scrollToHabilities = () => {
     skillRef.current.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
+  const scrollToProjects = () => {
+    projectsRef.current.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
@@ -91,9 +153,29 @@ export default function Home() {
   };
 
 
+  // Recieve if contact is closed
   const IsClosed = (childdata) => {
     setIsDesktopOpen(childdata)
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animationSt'); // Add the animation class when the element is in view
+        } else {
+          entry.target.classList.remove('animationSt'); // Remove the animation class when the element is out of view
+          entry.target.classList.add('animationStAnti'); // Remove the animation class when the element is out of view
+        }
+      });
+    });
+
+    observer.observe(aboutRef.current);
+
+    return () => observer.disconnect(); // Cleanup the observer on component unmount
+  }, []);
+
+
 
   function UpButton() {
     return(
@@ -130,33 +212,33 @@ export default function Home() {
     };
   }, []);
 
-
   return (
-    <div className={darkMode ? "dark bg-gray-900" : ""}>
+    <div className={isDark ? "dark bg-gray-900" : ""}>
 
       {/*Aqui pondre los overlays, por si las dudas JAJA*/}
 
-      {isDesktopOpen ? <Contact childToParent={IsClosed} parentToChild={darkMode}/> : null}
+      {isDesktopOpen ? <Contact childToParent={IsClosed}/> : null}
       <UpButton></UpButton>
       <main className='font-mon dark:bg-gray-900'>
-        <section className='lg:px-[200px]'>
+        <section className='xl:px-[200px] lg:px-[150px] md:px-[50px]'>
           <div className='flex justify-between items-center p-10 text-black dark:text-white'>
             <div>
               {isMobile ?
-              <h1 className='transition ease-in-out text-2xl hover:scale-110'
-              onClick={handleMenuClick}><label>ConleyDev</label></h1> 
+              <div>
+                <FaHamburger className='text-4xl text-slate-500 hover:text-amber-400 hover:rotate-[360deg] hover:scale-125 transition-all duration-500' onClick={handleMenuClick}/> 
+              </div>
               :
-              <div className='flex gap-2'>
-                <p className='px-3 py-2 hover:bg-gradient-to-r from-cyan-500 to-purple-400 transition-all ease-linear hover:text-white  rounded-lg' onClick={scrollToAbout}><label>Acerca de Mi</label></p>
-                <p className='px-3 py-2 hover:bg-gradient-to-r from-cyan-500 to-purple-400 hover:text-white  rounded-lg  transition-all ease-out' onClick={scrollToHabilities}><label>Habilidades</label></p>
-                <p className='px-3 py-2 hover:bg-gradient-to-r from-cyan-500 to-purple-400 hover:text-white  rounded-lg  transition-all ease-out'><label>Proyectos</label></p>
+              <div className='flex gap-2 font-light'>
+                <NavBarButton scrollTo={scrollToAbout} caps={"Acerca de Mi"}></NavBarButton>
+                <NavBarButton scrollTo={scrollToHabilities} caps={"Mis Habilidades"}></NavBarButton>
+                <NavBarButton scrollTo={scrollToProjects} caps={"Mis Proyectos"}></NavBarButton>
               </div>
               } 
             </div>     
-            <div className='flex gap-10'>
-              <a className='transition ease-in-out hover:scale-125'>
-                {darkMode ? <IoIosSunny className='text-3xl' onClick={() => setDarkMode(!darkMode)}/> : 
-                <IoIosCloudyNight className='text-3xl' onClick={() => setDarkMode(!darkMode)}/>}
+            <div className='flex gap-10 font-medium'>
+              <a className='transition-all duration-300 hover:scale-150'>
+                {isDark ? <IoIosSunny className='text-3xl text-white' onClick={() => setIsDark(!isDark)}/> : 
+                <IoIosCloudyNight className='text-3xl text-slate-500' onClick={() => setIsDark(!isDark)}/>}
                 </a>
               <a className='transition ease-out hover:scale-125' onClick={() => setIsDesktopOpen(!isDesktopOpen)}>
                 <label className='bg-gradient-to-r from-cyan-500 to-purple-500 p-3 rounded-xl text-white   
@@ -169,12 +251,12 @@ export default function Home() {
             className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex 
             items-center justify-center transition-opacity duration-300 z-50 overflow-auto font-mon"
             >
-              <div className='flex-col p-10 gap-5 bg-sky-500 text-white xs:mx-5 rounded-3xl
-                justify-start dark:bg-gray-600 content text-lg'>
-                <IoMdCloseCircle className='text-3xl mb-3' onClick={() => setIsMenuOpen(!isMenuOpen)}/>
-                <p className='p-6 hover:bg-slate-300 transition-all ease-in-out' onClick={scrollToAbout}>Acerca de mi</p>
-                <p className='p-6 hover:bg-slate-300 transition-all ease-in-out' onClick={scrollToHabilities}>Habilidades</p>
-                <p className='p-6 hover:bg-slate-300 transition-all ease-in-out'>Proyectos</p>
+              <div className='flex-col p-10 bg-white text-black xs:mx-5 rounded-3xl dark:text-white
+                 dark:bg-gray-600 content text-lg'>
+                <IoMdCloseCircle className='text-3xl mb-3 hover:text-red-500 transition-all ease-in-out' onClick={() => setIsMenuOpen(!isMenuOpen)}/>                
+                <HamburgerButton scrollTo={scrollToAbout} caps={"Acerca de Mi"}></HamburgerButton>
+                <HamburgerButton scrollTo={scrollToHabilities} caps={"Mis Habilidades"}></HamburgerButton>
+                <HamburgerButton scrollTo={scrollToProjects} caps={"Mis Proyectos"}></HamburgerButton>
               </div>
             </div>
           )}
@@ -185,10 +267,10 @@ export default function Home() {
              bg-clip-text	xs:mx-5 xs:text-6xl font-alata'>
               Mauricio B. Fortuna Lopez
             </h1>
-            <p className='mt-10 text-2xl font-bold text-gray-600 sm:mx-5 md:text-3xl dark:text-gray-400'>
+            <p className='mt-10 text-2xl font-medium text-gray-600 sm:mx-5 md:text-3xl dark:text-gray-400'>
               Desarrollador y programador.
             </p>
-            <p className='mt-5 text-lg xl:text-xl leading-loose xl:leading-loose dark:text-white xl:mx-48 lg:mx-20 xs:mx-10'>
+            <p className='mt-5 text-lg xl:text-xl leading-loose xl:leading-loose dark:text-white xl:mx-48 lg:mx-20 xs:mx-10 font-light'>
               Soy un desarrollador especializado en desarrollo de aplicaciones de escritorio y 
               aplicaciones web del lado del cliente-servidor y manejo de bases de datos.
             </p>
@@ -212,14 +294,14 @@ export default function Home() {
         <section  className=' dark:text-white mb-36' ref={aboutRef}>
          <About></About>
         </section>
-        <section  className=' dark:text-white py-16' ref={skillRef} >
+        <section  className=' dark:text-white py-8' ref={skillRef} >
          <Skills></Skills>
         </section>
-        <section className='mb-10'>
+        <section className='mb-10 py-8' ref={projectsRef}>
           <Projects></Projects>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </div>
   )
 }
