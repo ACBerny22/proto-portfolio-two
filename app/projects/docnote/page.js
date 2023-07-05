@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 
-import docNote from '@/app/images/docnote.png'
 import {  IoIosCloudyNight, IoIosSunny } from 'react-icons/io';
 import { useState, useEffect} from 'react';
 import { useSearchParams } from 'next/navigation'
@@ -35,10 +34,6 @@ export default function DocNote({params}) {
           </section>
       <h1 className='text-5xl text-center mt-36 font-mon font-bold'>DocNote Page</h1>
       <div className='flex justify-center my-10 transition ease-out hover:brightness-75'>
-        <Image
-        src={docNote}
-        alt={"This is me perros"}
-        />
         </div>
       </div>
     </div>

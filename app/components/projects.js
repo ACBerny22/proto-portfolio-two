@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useState, useEffect, useRef} from 'react';
 
 import docNote from '../images/DocNote.png'
-import tweets from '../images/tweets.PNG'
+import tweets from '../images/tweets.png'
 import port from '../images/port.png';
 import loteria from '../images/loteria.png';
 import reciclaje from '../images/reciclaje.jpg';
