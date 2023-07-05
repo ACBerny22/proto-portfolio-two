@@ -2,17 +2,18 @@
 
 import Image from 'next/image'
 
-import docNote from '../images/DocNote.png'
+import tweets from '@/app/images/tweets.png'
 import {  IoIosCloudyNight, IoIosSunny } from 'react-icons/io';
 import { useState, useEffect} from 'react';
 import { useSearchParams } from 'next/navigation'
-import { useDarkStore } from '../themeContext';
+import { useDarkStore } from '../../themeContext';
 
 
-export default function DocNote() {
+export default function DocNote({params}) {
 
   const {isDark, setIsDark} = useDarkStore();
 
+  console.log(params.DocNote)
 
   return (
     <div className={isDark ? 'dark bg-gray-900 text-white' : ''}>
@@ -32,10 +33,10 @@ export default function DocNote() {
               </div>
             </div>
           </section>
-      <h1 className='text-5xl text-center mt-36 font-mon font-bold'>DocNote Page</h1>
+      <h1 className='text-5xl text-center mt-36 font-mon font-bold'>Social Tweet App</h1>
       <div className='flex justify-center my-10 transition ease-out hover:brightness-75'>
         <Image
-        src={docNote}
+        src={tweets}
         alt={"This is me perros"}
         />
         </div>

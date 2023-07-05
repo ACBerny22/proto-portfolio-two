@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-import { BsFacebook, BsTwitter, BsTelegram } from 'react-icons/bs';
+import { BsFacebook, BsTwitter, BsTelegram, BsGithub } from 'react-icons/bs';
 import {  IoIosCloudyNight, IoIosSunny, IoMdCloseCircle } from 'react-icons/io';
 import { FaHamburger } from 'react-icons/fa';
 
@@ -158,24 +158,6 @@ export default function Home() {
     setIsDesktopOpen(childdata)
   }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animationSt'); // Add the animation class when the element is in view
-        } else {
-          entry.target.classList.remove('animationSt'); // Remove the animation class when the element is out of view
-          entry.target.classList.add('animationStAnti'); // Remove the animation class when the element is out of view
-        }
-      });
-    });
-
-    observer.observe(aboutRef.current);
-
-    return () => observer.disconnect(); // Cleanup the observer on component unmount
-  }, []);
-
-
 
   function UpButton() {
     return(
@@ -278,7 +260,7 @@ export default function Home() {
             <div className='flex justify-center my-10 gap-20 text-gray-600 dark:text-white'>
               <a href="https://www.facebook.com/Mauricio Fortuna"><BsFacebook className='text-4xl hover:scale-125 hover:text-sky-700 transition ease-in-out md:text-5xl'/></a>
               <a href="https://twitter.com/MauBfortuna"><BsTwitter className='text-4xl hover:scale-125  hover:text-sky-500 transition ease-in-out md:text-5xl'/></a>
-              <a href="https://www.w3schools.com"><BsTelegram className='text-4xl hover:scale-125 hover:text-sky-400 transition ease-in-out md:text-5xl'/></a>
+              <a href="https://github.com/ACBerny22"><BsGithub className='text-4xl hover:scale-125 hover:text-sky-400 transition ease-in-out md:text-5xl'/></a>
             </div>
           <div className='flex-col justify-center mb-24'>
             <div className='relative mx-auto bg-gradient-to-b from-sky-800 rounded-full overflow-hidden w-80 h-80

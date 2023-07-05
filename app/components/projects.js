@@ -45,7 +45,7 @@ export default function Projects() {
             <div className='xl:px-[200px] lg:px-[150px] md:px-[50px] xs:mx-5' ref={animatronic}>
                 <div className='pledge'>
                     <h1 className='mb-10 text-3xl font-medium dark:text-white'>Mis Proyectos</h1>
-                    <p className='font-light leading-loose lg:text-xl mt-2 mb-9 md:text-lg lg:leading-loose dark:text-gray-300'>
+                    <p className='lg:text-xl mt-2 xs:text-lg dark:text-gray-300 text-justify font-light lg:leading-loose xs:leading-10 mb-9'>
                         Así como he aprendido diversas tecnologías, he aplicado dichos conocimientos para construir varios proyectos, 
                         desde Desarrollo Web hasta aplicaciones de gestión de información y análisis de datos.
                     </p>
@@ -53,7 +53,7 @@ export default function Projects() {
                 <div className='xl:grid xl:grid-cols-2 xl:gap-10'>
                     <div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:'/docnote'}}> 
+                            <Link href={{pathname:`/projects/docnote`}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">DocNote</p>
@@ -73,7 +73,7 @@ export default function Projects() {
                             </Link>            
                         </div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:'/docnote'}}> 
+                            <Link href={{pathname:'/projects/socialtweetapp'}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">Social Tweet Comparer</p>
