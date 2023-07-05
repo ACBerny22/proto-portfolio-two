@@ -1,12 +1,12 @@
 "use client"; 
 
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 
 import { useState, useEffect, useRef} from 'react';
 
-import docNote from '../images/DocNote.png'
-import tweets from '../images/tweets.png'
+import docNote from '../images/DocNote.png';
+import tweets from '../images/tweetsApi.png';
 import port from '../images/port.png';
 import loteria from '../images/loteria.png';
 import reciclaje from '../images/reciclaje.jpg';
