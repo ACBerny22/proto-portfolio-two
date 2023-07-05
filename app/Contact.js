@@ -1,5 +1,4 @@
-"use client"; 
-import { useState } from 'react';
+
 import Image from 'next/image'
 import { useDarkStore } from './themeContext';
 
@@ -37,8 +36,8 @@ export default function DesktopApps({childToParent}){
                         </div>
                         <button onClick={() => childToParent(false)}
                         
-                        className="p-3 bg-sky-600 rounded-xl transition ease-in-out hover:bg-transparent text-white hover:text-sky-600
-                        hover:border-solid border-2 border-sky-600">
+                        className="p-3 bg-red-400  rounded-xl transition-all ease-in-out hover:bg-transparent text-white hover:text-red-400
+                        hover:border-solid border-2 border-red-400 hover:px-10">
                             Cerrar
                         </button>
                     </div>

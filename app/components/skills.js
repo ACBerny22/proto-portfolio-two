@@ -49,26 +49,27 @@ export default function Skills(){
 
     return(
       
-        <div className='xl:px-[200px] lg:px-[150px] md:px-[50px] xs:mx-5' ref={animatronic}>
+        <div className='xl:px-[200px] lg:px-[150px] md:px-[50px] xs:mx-7' ref={animatronic}>
             {isWebSkillsOpen ? <WebSkills isOpen={IsWebSkillsOpen}/> : null}
             <div className='pledge'>
             <h1 className='mb-10 lg:text-3xl font-medium xs:text-2xl'>
               Mis Habilidades
             </h1>
             <p className='lg:text-xl mt-2 xs:text-lg dark:text-gray-300 text-justify font-light lg:leading-loose xs:leading-10'>
-            A lo largo de mi trayectoria, me he especializado en el uso de diversas tecnologías, lo cual ha sido fundamental para construir una 
-            sólida base de conocimientos y habilidades en el campo del desarrollo. Estas tecnologías han abarcado diferentes áreas, desde <b className='font-medium'>desarrollo web 
-            y móvil hasta análisis de datos</b>.
+            A lo largo de mi trayectoria, he tenido la oportunidad de trabajar con diversas tecnologías y plataformas, en las cuales he podido consolidar un dominio considerable,
+             lo cual ha sido fundamental para construir una sólida base de conocimientos y habilidades en el campo del desarrollo. Estas tecnologías han abarcado diferentes áreas, desde 
+             <b className='font-medium'>desarrollo web y móvil hasta análisis de datos</b>.
             </p>
           </div>
         <div className='mx-5 dark:text-white mb-36'>
           <div className='text-center lg:flex gap-10 justify-center'>
-            <div className='flex-col  p-10 bg-white drop-shadow-xl rounded-2xl my-10 dark:bg-gray-700 transition ease-all hover:scale-105 hover:rounded-xl pledge'
-            onClick={() => {setIsWebSkillsOpen(true)}} ref={animatronic}>
-              <div className='relative mx-auto w-40 h-40 mb-3'>
+            <div className='flex-col p-10 bg-white drop-shadow-xl rounded-2xl my-10 dark:bg-gray-700 transition ease-all hover:scale-105 hover:rounded-xl pledge'
+             ref={animatronic}>
+              <div className='mx-auto w-40 h-40 mb-3'>
                 <Image 
                 src={webIcon}
                 alt={""}
+                className={'w-[100%]'}
                 />   
               </div>
               <h3 className='text-xl font-medium'>Proyectos Web</h3>

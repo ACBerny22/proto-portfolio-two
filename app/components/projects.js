@@ -42,7 +42,7 @@ export default function Projects() {
     
     return( 
         <div >
-            <div className='xl:px-[200px] lg:px-[150px] md:px-[50px] xs:mx-5' ref={animatronic}>
+            <div className='xl:px-[200px] lg:px-[150px] md:px-[50px] xs:mx-7' ref={animatronic}>
                 <div className='pledge'>
                     <h1 className='mb-10 text-3xl font-medium dark:text-white'>Mis Proyectos</h1>
                     <p className='lg:text-xl mt-2 xs:text-lg dark:text-gray-300 text-justify font-light lg:leading-loose xs:leading-10 mb-9'>
@@ -53,11 +53,10 @@ export default function Projects() {
                 <div className='xl:grid xl:grid-cols-2 xl:gap-10'>
                     <div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:`/projects/docnote`}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">DocNote</p>
-                                    <p className="mx-auto font-light text-xl">Sistema de Gestion de Pacientes y Consultas</p>
+                                    <p className="mx-auto font-light text-xl">Sistema de Gestión de Pacientes y Consultas</p>
                                     <div className='flex gap-10 mt-10'>
                                         <DiJava className='text-7xl'></DiJava>
                                         <DiMysql className='text-7xl'></DiMysql>
@@ -70,10 +69,8 @@ export default function Projects() {
                                     className=""
                                     />
                                 </div>  
-                            </Link>            
                         </div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:'/projects/socialtweetapp'}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">Social Tweet Comparer</p>
@@ -89,10 +86,8 @@ export default function Projects() {
                                     className=""
                                     />
                                 </div>  
-                            </Link>            
                         </div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:'/docnote'}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">Portafolio</p>
@@ -109,13 +104,11 @@ export default function Projects() {
                                     className=""
                                     />
                                 </div>  
-                            </Link>            
                         </div>
                     </div>
                     <div>
                         <div className='flex gap-10 justify-center'>
                             <div className='mb-5 relative hover:scale-105 transition-all ease-in-out w-72 pledge mx-5'>
-                                <Link href={{pathname:'/docnote'}}> 
                                     <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                     items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                         <p className="mx-auto font-semibold text-3xl">Lotería</p>
@@ -131,14 +124,12 @@ export default function Projects() {
                                         className=""
                                         />
                                     </div>  
-                                </Link>  
                             </div>
                             <div className='mb-5 relative hover:scale-105 transition-all ease-in-out w-72 pledge mx-5'>
-                                <Link href={{pathname:'/docnote'}}> 
                                     <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                     items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                         <p className="mx-auto font-semibold text-3xl">Recycler App</p>
-                                        <p className="mx-auto font-light text-xl">Concepto de Interfaz</p>
+                                        <p className="mx-auto font-light text-xl">Concepto de Interfáz</p>
                                         <div className='flex gap-10 mt-10'>
                                             <TbBrandReactNative className='text-7xl'></TbBrandReactNative>
                                         </div>
@@ -150,11 +141,9 @@ export default function Projects() {
                                         className=""
                                         />
                                     </div>  
-                                </Link>  
                             </div>
                         </div>
                         <div className='mb-5 relative hover:scale-105 transition-all ease-in-out pledge mx-5'>    
-                            <Link href={{pathname:'/docnote'}}> 
                                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-cyan-600/75 to-purple-500/75 text-white text-center flex flex-col 
                                 items-center justify-center opacity-0 hover:opacity-100 bg-opacity-90 duration-300">
                                     <p className="mx-auto font-semibold text-3xl">No Waste List</p>
@@ -171,7 +160,6 @@ export default function Projects() {
                                     className=""
                                     />
                                 </div>  
-                            </Link>            
                         </div>
                     </div>
                 </div>

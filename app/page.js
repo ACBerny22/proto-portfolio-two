@@ -19,8 +19,6 @@ import Contact from '@/app/Contact';
 import Projects from './components/projects';
 import About from './components/about';
 import Skills from './components/skills';
-import WebSkills from './components/webskills';
-
 
 export default function Home() {
 
@@ -40,8 +38,8 @@ export default function Home() {
 
   function NavBarButton({scrollTo, caps}){
     return(
-      <div className="relative text-center" onClick={scrollTo}>
-        <button className="bg-transparent text-black py-2 px-4 rounded transition-all ease-in-out dark:text-white">
+      <div className="relative text-center transition-all ease-in-out " onClick={scrollTo}>
+        <button className="bg-transparent text-black py-2 px-4 rounded transition-all ease-in-out  dark:text-white">
           {caps}
         </button> 
         <button className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-400 rounded opacity-0 hover:opacity-100
@@ -54,8 +52,8 @@ export default function Home() {
 
   function HamburgerButton({scrollTo, caps}){
     return(
-      <div className="relative text-center py-5 my-2" onClick={scrollTo}>
-        <button className="bg-transparent text-black py-2 px-4 rounded transition-all duration-300 font-normal dark:text-white">
+      <div className="relative text-center py-5 my-2 " onClick={scrollTo}>
+        <button className="bg-transparent text-black py-2 px-4 rounded transition-all duration-300 dark:text-white">
           {caps}
         </button>
         <button className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-400 rounded opacity-0 hover:opacity-100
@@ -222,8 +220,8 @@ export default function Home() {
                 {isDark ? <IoIosSunny className='text-3xl text-white' onClick={() => setIsDark(!isDark)}/> : 
                 <IoIosCloudyNight className='text-3xl text-slate-500' onClick={() => setIsDark(!isDark)}/>}
                 </a>
-              <a className='transition ease-out hover:scale-125' onClick={() => setIsDesktopOpen(!isDesktopOpen)}>
-                <label className='bg-gradient-to-r from-cyan-500 to-purple-500 p-3 rounded-xl text-white   
+              <a className='text-center'  onClick={() => setIsDesktopOpen(!isDesktopOpen)}>
+                <label className='bg-gradient-to-r transition-all ease-out  hover:px-10 from-cyan-500 to-purple-500 p-3 rounded-xl text-white
                 '>Contacto</label>
               </a>
             </div>
@@ -234,7 +232,7 @@ export default function Home() {
             items-center justify-center transition-opacity duration-300 z-50 overflow-auto font-mon"
             >
               <div className='flex-col p-10 bg-white text-black xs:mx-5 rounded-3xl dark:text-white
-                 dark:bg-gray-600 content text-lg'>
+                 dark:bg-gray-600 content text-lg  font-light'>
                 <IoMdCloseCircle className='text-3xl mb-3 hover:text-red-500 transition-all ease-in-out' onClick={() => setIsMenuOpen(!isMenuOpen)}/>                
                 <HamburgerButton scrollTo={scrollToAbout} caps={"Acerca de Mi"}></HamburgerButton>
                 <HamburgerButton scrollTo={scrollToHabilities} caps={"Mis Habilidades"}></HamburgerButton>
